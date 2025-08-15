@@ -7,7 +7,7 @@ import { onAuthStateChanged } from "firebase/auth";
 import { auth } from "./Firebse";
 import { useDispatch, useSelector } from "react-redux";
 import { getUser } from "./Redux/Api/UserAPI";
-import { userExist, userNoExist } from "./redux/Reducer/UserReducer";
+import { userExist, userNoExist } from "./Redux/Reducer/UserReducer.ts";
 import type { UserReducerInitalState } from "./Types/Reducer-types";
 import ProtectedRoute from "./Components/Protected-route";
 
