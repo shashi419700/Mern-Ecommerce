@@ -23,22 +23,22 @@ const OrderDetails = lazy(() => import("./Pages/order-details"));
 
 // Admin Routes Importing
 
-const Dashboard = lazy(() => import("./pages/admin/dashboard"));
-const Products = lazy(() => import("./pages/admin/products"));
-const Customers = lazy(() => import("./pages/admin/customers"));
-const Transaction = lazy(() => import("./pages/admin/transaction"));
-const Barcharts = lazy(() => import("./pages/admin/charts/barcharts"));
-const Piecharts = lazy(() => import("./pages/admin/charts/piecharts"));
-const Linecharts = lazy(() => import("./pages/admin/charts/linecharts"));
-const Coupon = lazy(() => import("./pages/admin/apps/coupon"));
-const Stopwatch = lazy(() => import("./pages/admin/apps/stopwatch"));
-const Toss = lazy(() => import("./pages/admin/apps/toss"));
-const NewProduct = lazy(() => import("./pages/admin/management/newproduct"));
+const Dashboard = lazy(() => import("./Pages/admin/dashboard.tsx"));
+const Products = lazy(() => import("./Pages/admin/products"));
+const Customers = lazy(() => import("./Pages/admin/customers"));
+const Transaction = lazy(() => import("./Pages/admin/transaction"));
+const Barcharts = lazy(() => import("./Pages/admin/charts/barcharts"));
+const Piecharts = lazy(() => import("./Pages/admin/charts/piecharts"));
+const Linecharts = lazy(() => import("./Pages/admin/charts/linecharts"));
+const Coupon = lazy(() => import("./Pages/admin/apps/coupon"));
+const Stopwatch = lazy(() => import("./Pages/admin/apps/stopwatch"));
+const Toss = lazy(() => import("./Pages/admin/apps/toss"));
+const NewProduct = lazy(() => import("./Pages/admin/management/newproduct"));
 const ProductManagement = lazy(
-  () => import("./pages/admin/management/productmanagement")
+  () => import("./Pages/admin/management/productmanagement")
 );
 const TransactionManagement = lazy(
-  () => import("./pages/admin/management/transactionmanagement")
+  () => import("./Pages/admin/management/transactionmanagement")
 );
 
 const App = () => {
