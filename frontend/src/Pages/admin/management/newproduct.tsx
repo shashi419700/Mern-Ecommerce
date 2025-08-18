@@ -1,10 +1,12 @@
-import { ChangeEvent, useState,FormEvent } from "react";
+import { useState} from "react";
+import type{ ChangeEvent,FormEvent } from "react";
 import AdminSidebar from "../../../components/admin/AdminSidebar";
 import { useSelector } from "react-redux";
 import { useNewProductMutation } from "../../../redux/Api/ProductAPI";
 import { useNavigate } from "react-router-dom";
 import { responceToast } from "../../../Utils/Feature";
 import type { UserReducerInitalState } from "../../../Types/Reducer-types";
+import toast from "react-hot-toast";
 
 const NewProduct = () => {
 
@@ -42,7 +44,7 @@ const NewProduct = () => {
   const submitHandler = async (e: FormEvent<HTMLFormElement>) =>{
     e.preventDefault()
 
-    if(!name || !price || !stock || !category|| !photo) return;
+    if(!name || !price || !stock || !category|| !photo ) return;
 
     const formData = new FormData();
 
@@ -52,8 +54,14 @@ const NewProduct = () => {
     formData.set("photo", photo)
     formData.set("category", category)
 
-    const res = await newproduct({id: user?._id!, formData});
-    responceToast(res, navigate,"/admin/product")
+    if (!user?._id) {
+  toast.error("User not logged in");
+  return;
+}
+
+const res = await newproduct({ id: user._id, formData });
+responceToast(res, navigate, "/admin/product");
+
   }
 
 

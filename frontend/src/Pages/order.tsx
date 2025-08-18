@@ -1,7 +1,7 @@
+import type { Column } from "react-table";
 import { useState, type ReactElement } from "react";
-import TableHOC from "../components/admin/TableHOC";
-import type { Column } from "@tanstack/react-table";
 import { Link } from "react-router-dom";
+import TableHOC from "../components/admin/TableHOC";
 
 type DataType = {
   _id: string;
@@ -12,10 +12,10 @@ type DataType = {
   action: ReactElement;
 };
 
-const column: Column<DataType>[] = [
+const columns: Column<DataType>[] = [
   {
-    Header: "ID",
-    accessor: "_id",
+    Header: "ID",            // ✅ v7 uses Header
+    accessor: "_id",         // ✅ v7 uses accessor (string | function)
   },
   {
     Header: "Quantity",
@@ -32,14 +32,14 @@ const column: Column<DataType>[] = [
   {
     Header: "Status",
     accessor: "status",
-  }, {
+  },
+  {
     Header: "Action",
     accessor: "action",
   },
 ];
 
 const Orders = () => {
-   
   const [rows] = useState<DataType[]>([
     {
       _id: "ffef8d4ddejdep5eded",
@@ -47,21 +47,22 @@ const Orders = () => {
       quantity: 23,
       discount: 5666,
       status: <span className="red">Processing</span>,
-      action:<Link to={`/order/ffef8d4ddejdep5eded`}>View</Link>
+      action: <Link to={`/order/ffef8d4ddejdep5eded`}>View</Link>,
     },
   ]);
 
   const Table = TableHOC<DataType>(
-    column,
+    columns,
     rows,
     "dashboard-product-box",
     "Orders",
     true
-  )();
+  );
+
   return (
-    <div className="container ">
+    <div className="container">
       <h1>My Orders</h1>
-      {Table}
+      {Table()}
     </div>
   );
 };

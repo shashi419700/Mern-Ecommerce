@@ -3,7 +3,7 @@ import { useState } from "react";
 import toast from "react-hot-toast";
 import { FcGoogle } from "react-icons/fc";
 import { auth } from "../Firebse";
-import { useLoginMutation } from "../Redux/Api/UserAPI";
+import { useLoginMutation } from "../redux/Api/UserAPI";
 import type { FetchBaseQueryError } from "@reduxjs/toolkit/query";
 import type { MessageResponse } from "../Types/API-Types";
 

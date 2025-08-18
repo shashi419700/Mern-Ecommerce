@@ -1,5 +1,5 @@
 import { FaPlus } from "react-icons/fa";
-import { server } from "../redux/store";
+import { server } from "../redux/Store";
 import type { CartItem } from "../Types/type";
 
 type productProps = {

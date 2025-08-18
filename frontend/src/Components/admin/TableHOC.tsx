@@ -3,14 +3,19 @@ import {
   AiOutlineSortDescending,
 } from "react-icons/ai";
 import {
-  Column,
   usePagination,
   useSortBy,
   useTable,
+} from "react-table";
+import type{
+  Column,
   TableOptions,
+  TableState,
 } from "react-table";
 
-function TableHOC<T extends Object>(
+
+
+function TableHOC<T extends object>(
   columns: Column<T>[],
   data: T[],
   containerClassname: string,
@@ -23,7 +28,7 @@ function TableHOC<T extends Object>(
       data,
       initialState: {
         pageSize: 6,
-      },
+      } as  Partial<TableState<T>> & { pageSize: number },
     };
 
     const {
@@ -38,7 +43,7 @@ function TableHOC<T extends Object>(
       previousPage,
       canNextPage,
       canPreviousPage,
-    } = useTable(options, useSortBy, usePagination);
+    } = useTable(options, useSortBy, usePagination) as any ;
 
     return (
       <div className={containerClassname}>
@@ -98,3 +103,6 @@ function TableHOC<T extends Object>(
 }
 
 export default TableHOC;
+
+
+

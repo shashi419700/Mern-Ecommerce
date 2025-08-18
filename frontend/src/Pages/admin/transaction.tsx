@@ -1,6 +1,7 @@
-import { ReactElement, useState } from "react";
+import {  useState } from "react";
+import type{ ReactElement } from "react";
 import { Link } from "react-router-dom";
-import { Column } from "react-table";
+import type{ Column } from "react-table";
 import AdminSidebar from "../../components/admin/AdminSidebar";
 import TableHOC from "../../components/admin/TableHOC";
 
@@ -69,7 +70,7 @@ const columns: Column<DataType>[] = [
 ];
 
 const Transaction = () => {
-  const [rows, setRows] = useState<DataType[]>(arr);
+  const [rows] = useState<DataType[]>(arr);
 
   const Table = TableHOC<DataType>(
     columns,
