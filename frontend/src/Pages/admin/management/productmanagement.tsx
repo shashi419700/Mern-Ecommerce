@@ -1,4 +1,5 @@
-import { ChangeEvent, FormEvent, useEffect, useState } from "react";
+import {  useEffect, useState } from "react";
+import type { ChangeEvent, FormEvent } from "react";
 import { FaTrash } from "react-icons/fa";
 import AdminSidebar from "../../../components/admin/AdminSidebar";
 import type { UserReducerInitalState } from "../../../Types/Reducer-types";
@@ -9,8 +10,8 @@ import {
   useProductDetailsQuery,
   useUpdateProductMutation,
 } from "../../../redux/Api/ProductAPI";
-import { server } from "../../../redux/store";
-import { Skeleton } from "../../../Components/loader";
+import { server } from "../../../redux/Store";
+import { Skeleton } from "../../../components/loader";
 import { responceToast } from "../../../Utils/Feature";
 
 const Productmanagement = () => {

@@ -1,12 +1,12 @@
 import { useState } from "react";
-import ProductCard from "../Components/product-card";
+import ProductCard from "../components/product-card";
 import {
   useCategoriesQuery,
   useSearchProductsQuery,
 } from "../redux/Api/ProductAPI";
 import type { CartItem, CustomError } from "../Types/type";
 import toast from "react-hot-toast";
-import { Skeleton } from "../Components/loader";
+import { Skeleton } from "../components/loader";
 import { useDispatch } from "react-redux";
 import { addToCart } from "../redux/Reducer/cardReducer";
 
@@ -14,13 +14,13 @@ const Search = () => {
   const {
     data: categoriesResponce,
     isLoading: loadingcategories,
-    isError: error,
+    // isError: error,
   } = useCategoriesQuery("");
 
   const [search, setSearch] = useState("");
   const [sort, setSort] = useState("");
   const [maxPrice, setMaxPrice] = useState(100000);
-  const [category, setCategory] = useState<string>();
+  const [category, setCategory] = useState<string>("");
   const [page, setPage] = useState(1);
 
   const {

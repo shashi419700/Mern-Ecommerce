@@ -1,4 +1,5 @@
-import { ReactElement, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
+import type { ReactElement } from "react";
 import toast from "react-hot-toast";
 import { FaPlus } from "react-icons/fa";
 import { useSelector } from "react-redux";
@@ -6,9 +7,9 @@ import { Link } from "react-router-dom";
 import type { Column } from "react-table";
 import AdminSidebar from "../../components/admin/AdminSidebar";
 import TableHOC from "../../components/admin/TableHOC";
-import { Skeleton } from "../../Components/loader";
+import { Skeleton } from "../../components/loader";
 import { useAllProductsQuery } from "../../redux/Api/ProductAPI";
-import { server } from "../../redux/store";
+import { server } from "../../redux/Store";
 import type { UserReducerInitalState } from "../../Types/Reducer-types";
 import type { CustomError } from "../../Types/type";
 
@@ -71,9 +72,11 @@ const Products = () => {
     (state: { userReducer: UserReducerInitalState }) => state.userReducer
   );
 
-  const { isLoading, isError, error, data } = useAllProductsQuery(user?._id);
+  const { isLoading, isError, error, data } = useAllProductsQuery(
+    user?._id as string
+  );
 
-  const [rows, setRows] = useState<DataType[]>([]);
+  const [rows, setRows] = useState<DataType[]>(arr);
 
   if (isError) {
     const err = error as CustomError;
@@ -83,7 +86,7 @@ const Products = () => {
   useEffect(() => {
     if (data)
       setRows(
-        data.product.map((i) => ({
+        data.products.map((i) => ({
           photo: <img src={`${server}/${i.photo}`} />,
           name: i.name,
           price: i.price,
@@ -104,7 +107,7 @@ const Products = () => {
   return (
     <div className="admin-container">
       <AdminSidebar />
-      <main>{isLoading ? <Skeleton length={20}/> : Table}</main>
+      <main>{isLoading ? <Skeleton length={20} /> : Table}</main>
       <Link to="/admin/product/new" className="create-product-btn">
         <FaPlus />
       </Link>

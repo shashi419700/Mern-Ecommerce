@@ -12,7 +12,7 @@ export type UserResponse = {
 
 export type AllProductsResponce = {
   success: boolean;
-  product: Product[];
+  products: Product[];
 };
 
 export type CategoriesResponce = {
@@ -22,7 +22,7 @@ export type CategoriesResponce = {
 
 export type SearchProductsResponce = {
   success: boolean;
-  product: Product[];
+  products: Product[];
   totalPage: number;
 };
 

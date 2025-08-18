@@ -24,10 +24,11 @@ const Shipping = () => {
     setShippingInfo((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   };
 
- useEffect(() => {
-    if (cartItems.length <= 0) return navigate("/cart");
-  }, [cartItems]);
-
+  useEffect(() => {
+    if (cartItems.length <= 0) {
+      navigate("/cart");
+    }
+  }, [cartItems, navigate]);
 
   return (
     <div className="shipping">

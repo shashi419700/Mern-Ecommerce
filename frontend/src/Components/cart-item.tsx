@@ -1,16 +1,16 @@
 import { FaTrash } from "react-icons/fa";
 import { Link } from "react-router-dom";
-import { server } from "../redux/store";
-import type { CartItem } from "../Types/type";
+import { server } from "../redux/Store";
+import type { CartItem as CartItemType } from "../Types/type"; // 👈 alias kiya
 
 type CartItemProps = {
-  cartItem: CartItem;
-  incrementHandler: (cartItem: CartItem) => void;
-  decrementHandler: (cartItem: CartItem) => void;
+  cartItem: CartItemType;
+  incrementHandler: (cartItem: CartItemType) => void;
+  decrementHandler: (cartItem: CartItemType) => void;
   removeHandler: (id: string) => void;
 };
 
-const CartItem = ({
+const CartItemCard = ({
   cartItem,
   incrementHandler,
   decrementHandler,
@@ -37,4 +37,4 @@ const CartItem = ({
   );
 };
 
-export default CartItem;
+export default CartItemCard; // 👈 default export naam clear rakha
